@@ -8,20 +8,30 @@ See [`CLAUDE.md`](./CLAUDE.md) for the full feature spec, control mapping, and i
 
 ## Local development on macOS
 
-Requires Python 3.11+ (tested on 3.12).
+Dependencies and the virtualenv are managed with [uv](https://docs.astral.sh/uv/).
+
+Install uv once (if you don't have it):
 
 ```shell
-# clone, then from the repo root:
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -r requirements-dev.txt
+curl -LsSf https://astral.sh/uv/install.sh | sh
+# or: brew install uv
 ```
+
+From the repo root, create the venv and install deps:
+
+```shell
+uv sync
+```
+
+This creates `.venv/`, installs the project with its `dev` dependency group (pygame), and pins versions in `uv.lock`. Re-run `uv sync` any time `pyproject.toml` changes.
 
 Run the emulator demo:
 
 ```shell
-python src/emulator_demo.py
+uv run python src/emulator_demo.py
 ```
+
+(`uv run` auto-syncs if the lockfile is out of date and runs the command inside the project venv — no manual `source .venv/bin/activate` needed. If you prefer activating, `source .venv/bin/activate` still works.)
 
 A window opens with the 16 strip LEDs, 4 button LEDs and 2 encoder dials.
 

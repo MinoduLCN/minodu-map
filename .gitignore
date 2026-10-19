@@ -6,3 +6,5 @@ __pycache__/
 
 .venv/
 venv/
+
+# uv keeps its lockfile tracked; nothing extra to ignore here

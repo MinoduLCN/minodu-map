@@ -1,0 +1,15 @@
+[project]
+name = "minodu-map"
+version = "0.1.0"
+description = "Firmware for the Minodu LCN Media Access Point"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "pygame>=2.5",
+]
+
+[tool.uv]
+package = false
